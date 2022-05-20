@@ -1,0 +1,51 @@
+- place some values into memory
+	[0000] <- 5
+	[0001] <- 10
+	[0002] <- 15
+	[0003] <- 20
+	[0004] <- 25
+
+- load them into the registers
+	LOAD $0, [0000] ; $0 = 5
+	LOAD $1, [0001] ; $1 = 5
+	LOAD $2, [0002] ; $2 = 5
+	LOAD $3, [0003] ; $3 = 5
+	LOAD $4, [0004] ; $4 = 5
+
+- move contents of registers
+	MOV $15, $0 ; $15 = 5 
+	MOV $14, $1 ; $14 = 10
+
+
+- jump to a part of the instructions memory that has a sequence of ALU instructions
+	JUMP [0014]
+
+
+- perform some normal ALU operations and store values in memory too
+	ADD $5, $0, $1 ; $5 = 15
+	STORE $5, [0005]
+	
+	SUB $6, $2, $1 ; $6 = 5
+	STORE $6, [0006]	
+	
+	AND $7, $4, $4 ; $7 = 25
+	STORE $7, [0007]
+
+	OR $10, $3, $1 ; $10 = 30
+	STORE $10, [000a]
+
+	XOR $8, $4, $4 ; $8 = 0
+	STORE $8, [0008]
+
+	NOT $9, $8 	   ; $9 = 65535
+	STORE $9, [0009]
+	
+- perform some immediate ALU operations
+	ADDI $5, $10, 5 ; $5 = 35
+
+	SUBI $7, $2, 5 ; $7 = 0
+	
+	INCR $0
+	DECR $0
+
+-  
